@@ -5,6 +5,9 @@ import createButton from './style-button/button';
 import './common.scss'
 import './font/iconfont.css'
 
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+
 const createComponent = text => {
     const element = document.createElement('div');
     element.innerHTML = text;
@@ -24,6 +27,16 @@ const createFontIcon = () => {
 }
 
 const imgDiv = createImage()
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('this is a test promise')
+    }, 1000)
+})
+
+promise.then(data => {
+    console.log(data)
+})
 
 const info = _.join([JSON.stringify(getUserInfo()), '', 'this is commonjs module'], '&nbsp;&nbsp;');
 document.body.appendChild(createComponent(info))

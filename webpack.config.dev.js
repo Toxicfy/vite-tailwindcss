@@ -1,6 +1,7 @@
 const path = require('path')
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -8,11 +9,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-        new CompressionWebpackPlugin({
-            threshold: 10240,
-            test: /\.(js|css)$/
+        new CleanWebpackPlugin({
+            "BASE_URL": '`./`'
         }),
-        new CleanWebpackPlugin()
+        new HTMLWebpackPlugin({
+            title: '通过html-webpack-plugin修改的title',
+            template: './public/index.html'
+        })
     ],
     module: {
         rules: [
@@ -62,6 +65,11 @@ module.exports = {
                 generator: {
                     filename: 'font/[name].[hash:3][ext]'
                 }
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             }
         ]
     }
