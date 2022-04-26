@@ -1,6 +1,6 @@
 const path = require('path')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -11,7 +11,8 @@ module.exports = {
         new CompressionWebpackPlugin({
             threshold: 10240,
             test: /\.(js|css)$/
-        })
+        }),
+        new CleanWebpackPlugin()
     ],
     module: {
         rules: [

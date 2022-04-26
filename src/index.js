@@ -3,6 +3,7 @@ import createImage from './image.js';
 const getUserInfo = require('./commonjs')
 import createButton from './style-button/button';
 import './common.scss'
+import './font/iconfont.css'
 
 const createComponent = text => {
     const element = document.createElement('div');
@@ -14,6 +15,12 @@ const createImageBackground = () => {
     const div = document.createElement('div');
     div.className = 'css-background-css'
     return div
+}
+
+const createFontIcon = () => {
+    const span = document.createElement('span');
+    span.className = 'icon iconfont icon-bofangqi-bofang'
+    return span;
 }
 
 const imgDiv = createImage()
@@ -30,3 +37,7 @@ document.body.appendChild(imgDiv)
 document.body.appendChild(createComponent('</br>'))
 document.body.appendChild(createComponent('通过 background = url 加载图片'))
 document.body.appendChild(createImageBackground())
+
+document.body.appendChild(createComponent('</br>'))
+document.body.appendChild(createComponent('通过 background = url 加载图片'))
+document.body.appendChild(createFontIcon())
