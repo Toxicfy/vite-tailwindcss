@@ -24,7 +24,7 @@ module.exports = {
                 use: ['style-loader', {
                     loader: 'css-loader',
                     options: {
-                        importLoaders: 1,
+                        importLoaders: 1
                     }
                 }, 'postcss-loader']
             },
@@ -33,7 +33,7 @@ module.exports = {
                 use: ['style-loader', {
                     loader: 'css-loader',
                     options: {
-                        importLoaders: 1,
+                        importLoaders: 1
                     }
                 }, 'postcss-loader', 'sass-loader']
             },
